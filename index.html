@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Foxhole Artillery Calculator</title>
+</head>
+<body>
+	<div class="row menu">
+		<ul>
+			<li class="col-6"><a href="#">Keyboard</a></li>
+			<li class="col-6"><a href="#">Sliders</a></li>
+		</ul>
+	</div>
+	<form>
+		<div class="row">
+			<div class="col-6">
+				<input type="radio" id="mortar" name="arty_type" value="mortar">
+				<label for="mortar">Mortar</label>
+			</div>
+			<div class="col-6">
+				<input type="radio" id="howitzer" name="arty_type" value="howitzer">
+				<label for="howitzer">Howitzer</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<input type="radio" id="field_arty" name="arty_type" value="field_arty">
+				<label for="field_arty">Field Artillery</label>
+			</div>
+			<div class="col-6">
+				<input type="radio" id="gunboat" name="arty_type" value="gunboat">
+				<label for="gunboat">Gunboat</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 ennemy"><fieldset>
+				<legend>TO ENNEMY POSITION</legend>
+				<ul>
+					<li>
+						<label for="ennemy_dist">distance :</label>
+						<input type="number" name="ennemy_dist" id="ennemy_dist " min="0" max="300" placeholder="0">
+						<label for="ennemy_dist">meters</label>
+					</li>
+					<li>
+						<label for="ennemy_azi">azimuth :</label>
+						<input type="number" name="ennemy_azi" id="ennemy_azi" min="0" max="359" step="1" placeholder="0">
+						<label for="ennemy_azi">degrees</label>
+					</li>
+				</ul>
+			</fieldset></div>
+		</div>
+		<div class="row">
+			<div class="col-12 friendly"><fieldset>
+				<legend>TO FRIENDLY ARTILLERY</legend>
+				<ul>
+					<li>
+						<label for="friendly_dist">distance :</label>
+						<input type="number" name="friendly_dist" id="friendly_dist" min="0" max="300" placeholder="0">
+						<label for="friendly_dist">meters</label>
+					</li>
+					<li>
+						<label for="friendly_azi">azimuth :</label>
+						<input type="number" name="friendly_azi" id="friendly_azi" min="0" max="359" step="1" placeholder="0">
+						<label for="friendly_azi">degrees</label>
+					</li>
+				</ul>			
+			</fieldset></div>
+		</div>
+		<div class="row">
+			<div class="col-12 send_btn">
+				<input type="submit" name="send" value="SEND">
+			</div>
+		</div>
+	</form>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script src="arty_calc.js"></script>
+</body>
+</html>
