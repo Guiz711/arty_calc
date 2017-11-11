@@ -10,10 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+let min_range = 0;
+let max_range = 0;
+let errors = ["<strong>Error :</strong> Please choose an artillery type.",
+				"<strong>Error :</strong> Target and Friendly distance and azimuth must not be the same.",
+				"<strong>Error :</strong> Target and Friendly distance must not be both 0."]
+
 function type_selected() {
 	let arty_type = $('input[name="arty_type"]:checked').val();
 
-	//$('.ennemy, .friendly, .send_btn').css('visibility', 'visible');
+	if ($('.alert').html() === errors[0]) {
+		$('.alert').css('display', 'none');
+	}
+	$('#mortar, #howitzer, #field_arty, #gunboat').css('border-style', 'hidden');
+	$('#' + arty_type).css('border-style', 'solid');
+	last_arty = arty_type;
 	switch (arty_type) {
 		case "mortar" :
 			min_range = 45;
@@ -56,7 +67,31 @@ function calc_data(e_dist, e_azi, f_dist, f_azi) {
 	r_dist = Math.sqrt(e_dist * e_dist + f_dist * f_dist - 2 * e_dist * f_dist * Math.cos(a_delt));
 	a_step = Math.round(deg(Math.asin(e_dist * Math.sin(a_delt) / r_dist)));
 	r_azi = (e_azi > f_azi) ? f_azi + 180 - a_step : f_azi + 180 + a_step;
-	alert("distance : " + r_dist.toFixed(1) + "\nazimuth : " + convert_angle(r_azi));
+	if (r_dist < min_range) {
+		$('#overlay').html('<p id = "warning"><strong>Warning :</strong> Target too close of arty.</p><div class="result"><p>Distance: ' + r_dist.toFixed(1) + 'm</p><p>Azimuth: ' + Math.round(r_azi) + '°</p></div>');
+	} else if (r_dist > max_range) {
+		$('#overlay').html('<p id = "warning"><strong>Warning :</strong> Target too far from arty.</p><div class="result"><p>Distance: ' + r_dist.toFixed(1) + 'm</p><p>Azimuth: ' + Math.round(r_azi) + '°</p></div>');
+	} else {
+		$('#overlay').html('<div class="result"><p>Distance: ' + r_dist.toFixed(1) + 'm</p><p>Azimuth: ' + Math.round(r_azi) + '°</p></div>');
+	}
+	$('#overlay').css('display', 'inline');
+}
+
+function verify_data(enn_dist, enn_azi, fri_dist, fri_azi) {
+	if (enn_dist === fri_dist && enn_azi === fri_azi) {
+		$('.alert').html(errors[1]);
+		$('.alert').css('display', 'inline');
+		return 1;
+	}
+	if (enn_dist === 0 && fri_dist === 0) {
+		$('.alert').html(errors[2]);
+		$('.alert').css('display', 'inline');
+		return 1;
+	}
+	if ($('.alert').html() === errors[1] || $('.alert').html() === errors[2]){
+		$('.alert').css('display', 'none');
+	}
+	return 0;
 }
 
 function get_data(e) {
@@ -66,20 +101,30 @@ function get_data(e) {
 	let fri_dist = parseFloat($('input[name="friendly_dist"]').val());
 	let fri_azi = parseFloat($('input[name="friendly_azi"]').val());
 	
+	if (max_range === 0) {
+		$('.alert').html(errors[0]);
+		$('.alert').css('display', 'inline');
+		return;
+	}
 	enn_dist = isNaN(enn_dist) ? 0 : enn_dist;
 	enn_azi = isNaN(enn_azi) ? 0 : enn_azi;
 	fri_dist = isNaN(fri_dist) ? 0 : fri_dist;
 	fri_azi = isNaN(fri_azi) ? 0 : fri_azi;
+	if (verify_data(enn_dist, enn_azi, fri_dist, fri_azi)) {
+		return;
+	}
 	calc_data(enn_dist, enn_azi, fri_dist, fri_azi);
 }
 
-function listen_events() {
-	let min_range = 0;
-	let max_range = 0;
+function clear_result() {
+	$('#overlay').css('display', 'none');
+}
 
+function listen_events() {
 	console.log("ready!");
 	$('input[name="arty_type"]').change(type_selected);
-	$('.send_btn').click(get_data);
+	$('#send_btn').click(get_data);
+	$('#overlay').click(clear_result);
 }
 
 $.when($.ready).then(listen_events);

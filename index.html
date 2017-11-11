@@ -31,35 +31,28 @@
 <body>
 
 
-	<div id="overlay">
-		<div class="result">
-			<p>Distance: 105m</p>
-			<p>Azimuth: 96°</p>
-		</div>
-	</div>
-
 	<form>
 			<div class="vertical container">
 			<div class="horizontal container">
 
 					<label>
-						<input type="radio" id="mortar" name="arty_type" value="mortar">
-						<img class="arty_type" src="./images/Mortar-0.png">
+						<input type="radio" name="arty_type" value="mortar">
+						<img class="arty_type" id="mortar" src="./images/Mortar.png">
 					</label>
 
 					<label>
-						<input type="radio" id="howitzer" name="arty_type" value="howitzer">
-						<img class="arty_type" src="./images/Howitzer_kit.png">
+						<input type="radio" name="arty_type" value="howitzer">
+						<img class="arty_type" id="howitzer" src="./images/Howitzer_kit.png">
 					</label>
 
 					<label>
-						<input type="radio" id="field_arty" name="arty_type" value="field_arty">
-						<img class="arty_type" src="./images/Field_Artillery.png">
+						<input type="radio" name="arty_type" value="field_arty">
+						<img class="arty_type" id="field_arty" src="./images/Field_Artillery.png">
 					</label>
 
 					<label>
-						<input type="radio" id="gunboat" name="arty_type" value="gunboat">
-						<img class="arty_type" src="./images/Gunship.png">
+						<input type="radio" name="arty_type" value="gunboat">
+						<img class="arty_type" id="gunboat" src="./images/Gunship.png">
 					</label>
 
 			</div>
@@ -97,31 +90,39 @@
 				<ul>
 					<li>
 						<label class="line" for="friendly_dist">distance :</label>
-						<input class="line" type="number" name="friendly_dist" id="friendly_dist" min="0" max="300" placeholder="0">
+						<input class="line" type="number" name="friendly_dist" id="friendly_dist" min="0" max="150" placeholder="0">
 						<label class="line" for="friendly_dist">meters</label>
 					</li>
 					<li>
 						<label class="line" for="friendly_azi">azimuth :</label>
-						<input class="line" type="number" name="friendly_azi" id="friendly_azi" min="0" max="359" step="1" placeholder="0">
+						<input class="line" type="number" name="friendly_azi" id="friendly_azi" min="0" max="150" step="1" placeholder="0">
 						<label class="line" for="friendly_azi">degrees</label>
 					</li>
 				</ul>		
 
 			</fieldset></div>				
 
-			<div class="row">
+			<div class="alert">
 
-				<div class="twelve columns send_btn">
+			</div>
+
+				<div class="send_div">
 
 					<input id="send_btn" type="submit" name="send" value="SEND">
 
 				</div>
 
-			</div>
-
 		</div>
 
 	</form>
+
+	<div id="overlay">
+			<div class="result">
+				<p>Distance: 105m</p>
+				<p>Azimuth: 96°</p>
+			</div>
+	</div>
+	
 	<script src="js/jquery-3.2.1.js"></script>
 	<script src="js/arty_calc.js"></script>
 
