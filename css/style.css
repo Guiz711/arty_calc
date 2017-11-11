@@ -1,0 +1,119 @@
+html, body, form
+{
+    width: 100vw;
+    height: 95vh;
+    min-height: 510px;
+    min-width: 270px;
+    text-align: center;
+}
+
+body
+{
+    background-color: rgb(30, 67, 90);
+    text-align: center;
+}
+
+fieldset
+{
+    color: white;
+    border-radius: 25px;
+    border-width:2px;
+    /*background-color: rgb(74, 97, 101);*/
+}
+
+ul
+{
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+
+#send_btn
+{
+    text-align: center;
+    color: white;
+}
+
+input[type="radio"]
+{
+    display: none;
+}
+
+.arty_type
+{
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+input
+{
+	margin: 1%;
+}
+
+.columns
+{
+    text-align: center;
+}
+
+.container
+{
+    display: flex;
+}
+
+.horizontal
+{
+    flex-direction: row;
+    /*flex-wrap: wrap;*/
+    width: 100%;
+    justify-content: center;
+}
+
+.vertical
+{
+    flex-direction: column;
+    flex-basis: min-content;
+    min-height: 100%;
+    justify-content: center;
+}
+
+#ennemy_pos, #friendly_pos
+{
+    text-align: left;
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
+h5
+{
+    font-weight: bold;
+}
+
+#overlay
+{
+	position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.line
+{
+    display: inline;
+}
+
+.result
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}

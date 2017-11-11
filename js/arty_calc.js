@@ -13,7 +13,7 @@
 function type_selected() {
 	let arty_type = $('input[name="arty_type"]:checked').val();
 
-	$('.ennemy, .friendly, .send_btn').css('visibility', 'visible');
+	//$('.ennemy, .friendly, .send_btn').css('visibility', 'visible');
 	switch (arty_type) {
 		case "mortar" :
 			min_range = 45;
@@ -66,10 +66,10 @@ function get_data(e) {
 	let fri_dist = parseFloat($('input[name="friendly_dist"]').val());
 	let fri_azi = parseFloat($('input[name="friendly_azi"]').val());
 	
-	enn_dist = (enn_dist === "") ? 0 : enn_dist;
-	enn_azi = (enn_azi === "") ? 0 : enn_azi;
-	fri_dist = (fri_dist === "") ? 0 : fri_dist;
-	fri_azi = (fri_azi === "") ? 0 : fri_azi;
+	enn_dist = isNaN(enn_dist) ? 0 : enn_dist;
+	enn_azi = isNaN(enn_azi) ? 0 : enn_azi;
+	fri_dist = isNaN(fri_dist) ? 0 : fri_dist;
+	fri_azi = isNaN(fri_azi) ? 0 : fri_azi;
 	calc_data(enn_dist, enn_azi, fri_dist, fri_azi);
 }
 

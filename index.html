@@ -1,80 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Foxhole Artillery Calculator</title>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Your page title here :)</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!--<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">-->
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
 </head>
 <body>
-	<div class="row menu">
-		<ul>
-			<li class="col-6"><a href="#">Keyboard</a></li>
-			<li class="col-6"><a href="#">Sliders</a></li>
-		</ul>
+
+
+	<div id="overlay">
+		<div class="result">
+			<p>Distance: 105m</p>
+			<p>Azimuth: 96°</p>
+		</div>
 	</div>
+
 	<form>
-		<div class="row">
-			<div class="col-6">
-				<input type="radio" id="mortar" name="arty_type" value="mortar">
-				<label for="mortar">Mortar</label>
+			<div class="vertical container">
+			<div class="horizontal container">
+
+					<label>
+						<input type="radio" id="mortar" name="arty_type" value="mortar">
+						<img class="arty_type" src="./images/Mortar-0.png">
+					</label>
+
+					<label>
+						<input type="radio" id="howitzer" name="arty_type" value="howitzer">
+						<img class="arty_type" src="./images/Howitzer_kit.png">
+					</label>
+
+					<label>
+						<input type="radio" id="field_arty" name="arty_type" value="field_arty">
+						<img class="arty_type" src="./images/Field_Artillery.png">
+					</label>
+
+					<label>
+						<input type="radio" id="gunboat" name="arty_type" value="gunboat">
+						<img class="arty_type" src="./images/Gunship.png">
+					</label>
+
 			</div>
-			<div class="col-6">
-				<input type="radio" id="howitzer" name="arty_type" value="howitzer">
-				<label for="howitzer">Howitzer</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-6">
-				<input type="radio" id="field_arty" name="arty_type" value="field_arty">
-				<label for="field_arty">Field Artillery</label>
-			</div>
-			<div class="col-6">
-				<input type="radio" id="gunboat" name="arty_type" value="gunboat">
-				<label for="gunboat">Gunboat</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 ennemy"><fieldset>
-				<legend>TO ENNEMY POSITION</legend>
+
+			<!--<div class="horizontal container">-->
+
+
+				<div class="field1">
+
+					<fieldset>
+						<h5 id="ennemy_pos">To Ennemy Position</h5>
+						<ul>
+							<li>
+								<label class="line" for="ennemy_dist">distance :</label>
+								<input class="line" type="number" name="ennemy_dist" id="ennemy_dist " min="0" max="300" placeholder="0">
+								<label class="line" for="ennemy_dist">meters</label>
+							</li>
+							<li>
+								<label class="line" for="ennemy_azi">azimuth :</label>
+								<input class="line" type="number" name="ennemy_azi" id="ennemy_azi" min="0" max="359" step="1" placeholder="0">
+								<label class="line" for="ennemy_azi">degrees</label>
+							</li>
+						</ul>
+
+					</fieldset>
+
+				</div>
+			
+			<!--</div>-->
+			
+			<div class="field2"><fieldset>
+
+				<h5 id="friendly_pos">To Friendly Artillery</h5>
+
 				<ul>
 					<li>
-						<label for="ennemy_dist">distance :</label>
-						<input type="number" name="ennemy_dist" id="ennemy_dist " min="0" max="300" placeholder="0">
-						<label for="ennemy_dist">meters</label>
+						<label class="line" for="friendly_dist">distance :</label>
+						<input class="line" type="number" name="friendly_dist" id="friendly_dist" min="0" max="300" placeholder="0">
+						<label class="line" for="friendly_dist">meters</label>
 					</li>
 					<li>
-						<label for="ennemy_azi">azimuth :</label>
-						<input type="number" name="ennemy_azi" id="ennemy_azi" min="0" max="359" step="1" placeholder="0">
-						<label for="ennemy_azi">degrees</label>
+						<label class="line" for="friendly_azi">azimuth :</label>
+						<input class="line" type="number" name="friendly_azi" id="friendly_azi" min="0" max="359" step="1" placeholder="0">
+						<label class="line" for="friendly_azi">degrees</label>
 					</li>
-				</ul>
-			</fieldset></div>
-		</div>
-		<div class="row">
-			<div class="col-12 friendly"><fieldset>
-				<legend>TO FRIENDLY ARTILLERY</legend>
-				<ul>
-					<li>
-						<label for="friendly_dist">distance :</label>
-						<input type="number" name="friendly_dist" id="friendly_dist" min="0" max="300" placeholder="0">
-						<label for="friendly_dist">meters</label>
-					</li>
-					<li>
-						<label for="friendly_azi">azimuth :</label>
-						<input type="number" name="friendly_azi" id="friendly_azi" min="0" max="359" step="1" placeholder="0">
-						<label for="friendly_azi">degrees</label>
-					</li>
-				</ul>			
-			</fieldset></div>
-		</div>
-		<div class="row">
-			<div class="col-12 send_btn">
-				<input type="submit" name="send" value="SEND">
+				</ul>		
+
+			</fieldset></div>				
+
+			<div class="row">
+
+				<div class="twelve columns send_btn">
+
+					<input id="send_btn" type="submit" name="send" value="SEND">
+
+				</div>
+
 			</div>
+
 		</div>
+
 	</form>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-	<script src="arty_calc.js"></script>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/arty_calc.js"></script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
