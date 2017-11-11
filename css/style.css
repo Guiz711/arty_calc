@@ -88,11 +88,6 @@ input
 	margin: 1%;
 }
 
-.columns
-{
-    text-align: center;
-}
-
 .container
 {
     display: flex;
@@ -110,7 +105,8 @@ input
 {
     flex-direction: column;
     flex-basis: min-content;
-    min-height: 100%;
+    min-height: 90vh;
+    flex: 1;
     justify-content: center;
 }
 
@@ -171,4 +167,16 @@ h5
     color: yellow;
     transform: translate(-50%,0);
     -ms-transform: translate(-50%,0);
+}
+
+#footer
+{
+    align-self: center flex-end;
+    color: lightgrey;
+    font-style: italic;
+}
+
+#credit
+{
+    margin-bottom: auto;
 }
