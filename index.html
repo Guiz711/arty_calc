@@ -30,97 +30,89 @@
 </head>
 <body>
 
-
 	<form>
-			<div class="vertical container">
+		<div class="vertical container">
+
 			<div class="horizontal container">
 
-					<label>
-						<input type="radio" name="arty_type" value="mortar">
-						<img class="arty_type" id="mortar" src="./images/Mortar.png">
-					</label>
+				<label>
+					<input type="radio" name="arty_type" value="mortar">
+					<img class="arty_type" id="mortar" src="./images/Mortar.png">
+				</label>
 
-					<label>
-						<input type="radio" name="arty_type" value="howitzer">
-						<img class="arty_type" id="howitzer" src="./images/Howitzer_kit.png">
-					</label>
+				<label>
+					<input type="radio" name="arty_type" value="howitzer">
+					<img class="arty_type" id="howitzer" src="./images/Howitzer_kit.png">
+				</label>
 
-					<label>
-						<input type="radio" name="arty_type" value="field_arty">
-						<img class="arty_type" id="field_arty" src="./images/Field_Artillery.png">
-					</label>
+				<label>
+					<input type="radio" name="arty_type" value="field_arty">
+					<img class="arty_type" id="field_arty" src="./images/Field_Artillery.png">
+				</label>
 
-					<label>
-						<input type="radio" name="arty_type" value="gunboat">
-						<img class="arty_type" id="gunboat" src="./images/Gunship.png">
-					</label>
-
-			</div>
-
-			<!--<div class="horizontal container">-->
-
-
-				<div class="field1">
-
-					<fieldset>
-						<h5 id="ennemy_pos">To Ennemy Position</h5>
-						<ul>
-							<li>
-								<label class="line" for="ennemy_dist">distance :</label>
-								<input class="line" type="number" name="ennemy_dist" id="ennemy_dist " min="0" max="300" placeholder="0">
-								<label class="line" for="ennemy_dist">meters</label>
-							</li>
-							<li>
-								<label class="line" for="ennemy_azi">azimuth :</label>
-								<input class="line" type="number" name="ennemy_azi" id="ennemy_azi" min="0" max="359" step="1" placeholder="0">
-								<label class="line" for="ennemy_azi">degrees</label>
-							</li>
-						</ul>
-
-					</fieldset>
-
-				</div>
-			
-			<!--</div>-->
-			
-			<div class="field2"><fieldset>
-
-				<h5 id="friendly_pos">To Friendly Artillery</h5>
-
-				<ul>
-					<li>
-						<label class="line" for="friendly_dist">distance :</label>
-						<input class="line" type="number" name="friendly_dist" id="friendly_dist" min="0" max="150" placeholder="0">
-						<label class="line" for="friendly_dist">meters</label>
-					</li>
-					<li>
-						<label class="line" for="friendly_azi">azimuth :</label>
-						<input class="line" type="number" name="friendly_azi" id="friendly_azi" min="0" max="150" step="1" placeholder="0">
-						<label class="line" for="friendly_azi">degrees</label>
-					</li>
-				</ul>		
-
-			</fieldset></div>				
-
-			<div class="alert">
+				<label>
+					<input type="radio" name="arty_type" value="gunboat">
+					<img class="arty_type" id="gunboat" src="./images/Gunship.png">
+				</label>
 
 			</div>
 
-				<div class="send_div">
+			<div class="field1">
 
-					<input id="send_btn" type="submit" name="send" value="SEND">
+				<fieldset>
+					<h5 id="ennemy_pos">To Ennemy Position</h5>
+					<ul>
+						<li>
+							<label class="line" for="ennemy_dist">distance :</label>
+							<input class="line" type="number" name="ennemy_dist" id="ennemy_dist " min="0" max="300" placeholder="0">
+							<label class="line" for="ennemy_dist">meters</label>
+						</li>
+						<li>
+							<label class="line" for="ennemy_azi">azimuth :</label>
+							<input class="line" type="number" name="ennemy_azi" id="ennemy_azi" min="0" max="359" step="1" placeholder="0">
+							<label class="line" for="ennemy_azi">degrees</label>
+						</li>
+					</ul>
+				</fieldset>
 
-				</div>
+			</div>
+			
+			<div class="field2">
+					
+				<fieldset>
+					<h5 id="friendly_pos">To Friendly Artillery</h5>
+					<ul>
+						<li>
+							<label class="line" for="friendly_dist">distance :</label>
+							<input class="line" type="number" name="friendly_dist" id="friendly_dist" min="0" max="150" placeholder="0">
+							<label class="line" for="friendly_dist">meters</label>
+						</li>
+						<li>
+							<label class="line" for="friendly_azi">azimuth :</label>
+							<input class="line" type="number" name="friendly_azi" id="friendly_azi" min="0" max="150" step="1" placeholder="0">
+							<label class="line" for="friendly_azi">degrees</label>
+						</li>
+					</ul>		
+				</fieldset>
+
+			</div>				
+
+			<div class="alert"></div>
+
+			<div class="send_div">
+
+				<input id="send_btn" type="submit" name="send" value="SEND">
+
+			</div>
 
 		</div>
 
 	</form>
 
 	<div id="overlay">
-			<div class="result">
-				<p>Distance: 105m</p>
-				<p>Azimuth: 96°</p>
-			</div>
+
+		<div class="result"></div>
+
 	</div>
 	
 	<script src="js/jquery-3.2.1.js"></script>
