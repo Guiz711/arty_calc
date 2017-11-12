@@ -14,7 +14,7 @@ let min_range = 0;
 let max_range = 0;
 let errors = ["<strong>Error :</strong> Please choose an artillery type.",
 				"<strong>Error :</strong> Target and Friendly distance and azimuth must not be the same.",
-				"<strong>Error :</strong> Target and Friendly distance must not be both 0."]
+				"<strong>Error :</strong> Target and Friendly distance must not be both 0."];
 
 function type_selected() {
 	let arty_type = $('input[name="arty_type"]:checked').val();
@@ -22,8 +22,8 @@ function type_selected() {
 	if ($('.alert').html() === errors[0]) {
 		$('.alert').css('display', 'none');
 	}
-	$('#mortar, #howitzer, #field_arty, #gunboat').css('border-style', 'hidden');
-	$('#' + arty_type).css('border-style', 'solid');
+	$('#mortar, #howitzer, #field_arty, #gunboat').css('border-color', 'transparent');
+	$('#' + arty_type).css('border-color', 'lightgrey');
 	last_arty = arty_type;
 	switch (arty_type) {
 		case "mortar" :
